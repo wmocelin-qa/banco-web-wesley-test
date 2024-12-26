@@ -1,0 +1,29 @@
+html {
+    height: 100%;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin: 0;
+}
+
+.page-footer {
+    margin-top: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.page-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav class="blue darken-4" role="navigation">
+        <div class="row">
+            <div class="col l12 s12">
+                <div class="nav-wrapper container">
+                    <a id="logo-container" href="#" class="brand-logo">Banco</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">&nbsp;</div>
+    <div class="container">
+        <div class="row">
+            <div class="col l12 s12">
+                <div id="login-section">
+                    <h4>Login</h4>
+                    <div class="input-field">
+                        <input id="username" type="text">
+                        <label for="username">Usuário</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="senha" type="password">
+                        <label for="senha">Senha</label>
+                    </div>
+                    <button class="btn waves-effect waves-light" onclick="login()">Entrar</button>
+                    <p id="login-error" class="red-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="app-section" class="hidden">
+            <div class="row">
+                <div class="col l12 s12">
+                    <h4>Realizar Transferência</h4>
+
+                    <div class="input-field">
+                        <select id="conta-origem">
+                            <option value="" disabled selected>Escolha a Conta Origem</option>
+                        </select>
+                        <label for="conta-origem">Conta Origem</label>
+                    </div>
+
+                    <div class="input-field">
+                        <select id="conta-destino">
+                            <option value="" disabled selected>Escolha a Conta Destino</option>
+                        </select>
+                        <label for="conta-destino">Conta Destino</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input id="valor" type="number">
+                        <label for="valor">Valor</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input id="token" type="text">
+                        <label for="token">Token (Valores maiores que R$ 5.000,00)</label>
+                    </div>
+                    <button class="btn waves-effect waves-light" onclick="fazerTransferencia()">Transferir</button>
+                    <p id="transferencia-status" class="green-text"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l12 s12">
+
+                    <h4>Lista de Transferências</h4>
+                    <ul id="transferencias-list" class="collection"></ul>
+                    <div class="page-controls">
+                        <button id="btn-anterior" class="btn waves-effect waves-light" onclick="anterior()">Página
+                            Anterior</button>
+                        <span id="pagina-atual"></span>
+                        <button id="btn-proximo" class="btn waves-effect waves-light" onclick="proximo()">Próxima
+                            Página</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">&nbsp;</div>
+
+    <footer class="page-footer grey darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col l12 s12">
+                    <h5 class="white-text">Sobre o Projeto</h5>
+                    <p class="grey-text text-lighten-4">
+                        Projeto criado como base para estudos de teste de software nos treinamentos do Júlio de Lima.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/setup.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/transferencia.js"></script>
+    <script src="js/contas.js"></script>
+</body>
+
+</html>
