@@ -18,12 +18,3 @@ async function listarContas() {
     M.FormSelect.init(contaOrigemSelect);
     M.FormSelect.init(contaDestinoSelect);
 }
-
-function resetarContas() {
-    const contaOrigemSelect = document.getElementById('conta-origem');
-    const contaDestinoSelect = document.getElementById('conta-destino');
-    contaOrigemSelect.selectedIndex = 0;
-    contaDestinoSelect.selectedIndex = 0;
-    M.FormSelect.init(contaOrigemSelect);
-    M.FormSelect.init(contaDestinoSelect);
-}

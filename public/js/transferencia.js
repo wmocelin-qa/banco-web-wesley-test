@@ -1,10 +1,22 @@
+function resetarFormularioTransferencia() {
+    const contaOrigemSelect = document.getElementById('conta-origem');
+    const contaDestinoSelect = document.getElementById('conta-destino');
+    
+    contaOrigemSelect.selectedIndex = 0;
+    contaDestinoSelect.selectedIndex = 0;
+    
+    M.FormSelect.init(contaOrigemSelect);
+    M.FormSelect.init(contaDestinoSelect);
+
+    document.getElementById('valor').value = '';
+    document.getElementById('token').value = '';
+}
+
 async function fazerTransferencia() {
     const contaOrigem = document.getElementById('conta-origem').value;
     const contaDestino = document.getElementById('conta-destino').value;
     const valor = document.getElementById('valor').value;
     const token = document.getElementById('token').value;
-
-    console.log(JSON.stringify({ contaOrigem, contaDestino, valor, token }));
 
     const response = await fetch('/bff/transferencia', {
         method: 'POST',
@@ -15,7 +27,7 @@ async function fazerTransferencia() {
     if (response.ok) {
         M.toast({ html: 'Transferência realizada!', classes: 'green' });
         listarTransferencias();
-        resetarContas();
+        resetarFormularioTransferencia();
     } else {
         const data = await response.json();
         M.toast({ html: data.error || 'Erro na transferência.', classes: 'red' });
