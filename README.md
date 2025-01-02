@@ -11,6 +11,7 @@ Antes de executar o `Banco Web`, certifique-se de que a API esteja configurada e
 
 ## Tecnologias Utilizadas
 - **Backend**: Node.js com Express
+- **Mock Server**: Mockoon
 - **Frontend**: HTML, CSS (Materialize CSS), e JavaScript
 - **Bibliotecas**:
   - [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API): Para chamadas HTTP
@@ -32,7 +33,7 @@ Antes de executar o `Banco Web`, certifique-se de que a API esteja configurada e
 3. Configure as variáveis de ambiente:
    Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
    ```env
-   API_BASE_URL=http://localhost:3000 # URL base da API REST Banco API
+   API_BASE_URL=http://localhost:3000 # URL base da API REST Banco API ou do Mock Server
    PORT=4000                         # Porta em que o servidor será executado
    ```
 
@@ -41,7 +42,12 @@ Antes de executar o `Banco Web`, certifique-se de que a API esteja configurada e
    npm run server
    ```
 
-5. Abra o navegador e acesse:
+5. Execute o servidor de Mock (Opcional):
+   ```bash
+   npm run mock-server
+   ```
+
+6. Abra o navegador e acesse:
    ```
    http://localhost:4000
    ```
@@ -84,6 +90,8 @@ Antes de executar o `Banco Web`, certifique-se de que a API esteja configurada e
 │   │   ├── transferencia.js    # Lógica de transferências
 │   │   └── contas.js           # Lógica de contas
 │   └── index.html              # Interface principal
+├── mocks
+│   └── banco-api.json          # Mocks da banco-api criados no Mockoon
 ├── app.js                      # Servidor Express
 ├── .env                        # Configurações de ambiente
 ├── package.json                # Configuração do projeto
