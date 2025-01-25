@@ -1,0 +1,263 @@
+{
+  "uuid": "079a1958-5b8f-407d-a5a3-66cf7bd6ed43",
+  "lastMigration": 33,
+  "name": "Banco",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [
+    {
+      "uuid": "f565d578-a66b-407d-8e41-ca0ef0b6d2aa",
+      "name": "banco-api",
+      "children": [
+        {
+          "type": "folder",
+          "uuid": "29149f53-fbe4-443b-b7e6-e3f2eb3ef1d7"
+        },
+        {
+          "type": "folder",
+          "uuid": "12d577e0-19c9-41c3-b194-ce46442f2729"
+        },
+        {
+          "type": "folder",
+          "uuid": "4486f24b-7575-485a-86eb-6ac8a5c83589"
+        }
+      ]
+    },
+    {
+      "uuid": "29149f53-fbe4-443b-b7e6-e3f2eb3ef1d7",
+      "name": "login",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "87dd94db-a748-4c22-9361-341aaf494516"
+        }
+      ]
+    },
+    {
+      "uuid": "12d577e0-19c9-41c3-b194-ce46442f2729",
+      "name": "contas",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "4d8edae0-5d30-4bd3-a0d7-02f80887117f"
+        }
+      ]
+    },
+    {
+      "uuid": "4486f24b-7575-485a-86eb-6ac8a5c83589",
+      "name": "transferencias",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "3c3f5565-3715-48ec-96d7-ca9efcdc7c3d"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "uuid": "87dd94db-a748-4c22-9361-341aaf494516",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "login",
+      "responses": [
+        {
+          "uuid": "79f5f854-67b4-4907-9770-760cf2b46de0",
+          "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJqdWxpby5saW1hIiwiaWF0IjoxNzM1Nzg0Njg5LCJleHAiOjE3NjczNDIyODl9.R1X6MqIMRlEMXNsSEurWH25mkU5YXj-DnidYh7psWkc\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Login com Sucesso",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "username",
+              "value": "julio.lima",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f472a1b7-ff22-4f70-8dd2-aac3a5b86dbb",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Falha no Login",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "username",
+              "value": "julio.lima",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4d8edae0-5d30-4bd3-a0d7-02f80887117f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "contas",
+      "responses": [
+        {
+          "uuid": "0687df80-46a9-455b-a37e-63bd8041e666",
+          "body": "{\n  \"contas\": [\n    {\n      \"id\": 4,\n      \"titular\": \"Ana Pereira\",\n      \"saldo\": \"44980.00\",\n      \"ativa\": 1\n    },\n    {\n      \"id\": 3,\n      \"titular\": \"Carlos Souza\",\n      \"saldo\": \"55033.00\",\n      \"ativa\": 1\n    },\n    {\n      \"id\": 6,\n      \"titular\": \"Fernanda Costa\",\n      \"saldo\": \"50000.00\",\n      \"ativa\": 1\n    },\n    {\n      \"id\": 1,\n      \"titular\": \"João Silva\",\n      \"saldo\": \"49954.00\",\n      \"ativa\": 1\n    },\n    {\n      \"id\": 8,\n      \"titular\": \"Juliana Mendes\",\n      \"saldo\": \"50000.00\",\n      \"ativa\": 1\n    },\n    {\n      \"id\": 5,\n      \"titular\": \"Lucas Almeida\",\n      \"saldo\": \"50000.00\",\n      \"ativa\": 1\n    },\n    {\n      \"id\": 7,\n      \"titular\": \"Marcos Santos\",\n      \"saldo\": \"50000.00\",\n      \"ativa\": 1\n    },\n    {\n      \"id\": 2,\n      \"titular\": \"Maria Oliveira\",\n      \"saldo\": \"50033.00\",\n      \"ativa\": 1\n    },\n    {\n      \"id\": 10,\n      \"titular\": \"Paula Rocha\",\n      \"saldo\": \"50000.00\",\n      \"ativa\": 1\n    },\n    {\n      \"id\": 9,\n      \"titular\": \"Pedro Ribeiro\",\n      \"saldo\": \"50000.00\",\n      \"ativa\": 0\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3c3f5565-3715-48ec-96d7-ca9efcdc7c3d",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "transferencias",
+      "responses": [
+        {
+          "uuid": "fa2f3e1f-a599-42da-9372-b5415d2fe0d9",
+          "body": "{\n  \"page\": 1,\n  \"limit\": 5,\n  \"total\": 56,\n  \"transferencias\": [\n    {\n      \"id\": 56,\n      \"conta_origem_id\": 4,\n      \"conta_destino_id\": 4,\n      \"valor\": \"11.00\",\n      \"data_hora\": \"2024-12-30T03:22:56.000Z\",\n      \"autenticada\": 0,\n      \"titular_origem\": \"Ana Pereira\",\n      \"titular_destino\": \"Ana Pereira\"\n    },\n    {\n      \"id\": 55,\n      \"conta_origem_id\": 1,\n      \"conta_destino_id\": 2,\n      \"valor\": \"11.00\",\n      \"data_hora\": \"2024-12-28T21:23:50.000Z\",\n      \"autenticada\": 0,\n      \"titular_origem\": \"João Silva\",\n      \"titular_destino\": \"Maria Oliveira\"\n    },\n    {\n      \"id\": 54,\n      \"conta_origem_id\": 1,\n      \"conta_destino_id\": 2,\n      \"valor\": \"11.00\",\n      \"data_hora\": \"2024-12-28T21:21:16.000Z\",\n      \"autenticada\": 0,\n      \"titular_origem\": \"João Silva\",\n      \"titular_destino\": \"Maria Oliveira\"\n    },\n    {\n      \"id\": 53,\n      \"conta_origem_id\": 2,\n      \"conta_destino_id\": 2,\n      \"valor\": \"10.00\",\n      \"data_hora\": \"2024-12-28T19:04:12.000Z\",\n      \"autenticada\": 0,\n      \"titular_origem\": \"Maria Oliveira\",\n      \"titular_destino\": \"Maria Oliveira\"\n    },\n    {\n      \"id\": 52,\n      \"conta_origem_id\": 4,\n      \"conta_destino_id\": 3,\n      \"valor\": \"11.00\",\n      \"data_hora\": \"2024-12-27T03:06:40.000Z\",\n      \"autenticada\": 0,\n      \"titular_origem\": \"Ana Pereira\",\n      \"titular_destino\": \"Carlos Souza\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "page",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "query",
+              "modifier": "limit",
+              "value": "5",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "folder",
+      "uuid": "f565d578-a66b-407d-8e41-ca0ef0b6d2aa"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "1f4062a9-c505-4b34-b864-f196fc7bf2d5",
+      "id": "is3n",
+      "name": "Users",
+      "documentation": "",
+      "value": "[\n  {{#repeat 50}}\n  {\n    \"id\": \"{{faker 'string.uuid'}}\",\n    \"username\": \"{{faker 'internet.userName'}}\"\n  }\n  {{/repeat}}\n]"
+    }
+  ],
+  "callbacks": []
+}
