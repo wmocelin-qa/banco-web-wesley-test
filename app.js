@@ -68,3 +68,5 @@ app.get('/bff/contas', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`BFF rodando na porta ${PORT}`);
 });
+
+//mais um teste wesley - projeto forkado!!!!!
